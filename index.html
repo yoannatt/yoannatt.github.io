@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yoanna Turura</title>
+<meta name="description" content="Yoanna Turura: machine learning researcher and engineer interested in federated learning, privacy, and fair AI for low-resource communities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#faf8f4;
+    --ink:#1c1b19;
+    --muted:#5f5b54;
+    --rule:#e3ded5;
+    --accent:#1f5c55;
+    --accent-soft:#e6efed;
+    --serif:"Newsreader", Georgia, serif;
+    --sans:"IBM Plex Sans", system-ui, sans-serif;
+    --mono:"IBM Plex Mono", ui-monospace, monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:72px}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(31,92,85,.25)}
+  a:hover{border-bottom-color:var(--accent)}
+  .wrap{max-width:860px;margin:0 auto;padding:0 28px}
+
+  nav{position:sticky;top:0;z-index:5;background:rgba(250,248,244,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+  .mark{font-family:var(--serif);font-size:19px;font-weight:500;color:var(--ink);border:0;white-space:nowrap}
+  nav ul{list-style:none;display:flex;gap:20px;margin:0;padding:0;overflow-x:auto}
+  nav ul a{color:var(--muted);border:0;font-size:14px;white-space:nowrap}
+  nav ul a:hover{color:var(--ink)}
+
+  header{padding:72px 0 48px;border-bottom:1px solid var(--rule)}
+  .hero{display:grid;grid-template-columns:1fr 240px;gap:48px;align-items:start}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(36px,5vw,50px);line-height:1.08;letter-spacing:-.01em;margin:0 0 14px}
+  .role{font-size:17px;color:var(--muted);margin:0 0 22px}
+  .lede{font-family:var(--serif);font-size:20px;line-height:1.55;margin:0 0 26px;max-width:36em}
+  .links{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px}
+  .portrait{width:240px;height:296px;border-radius:4px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:56px;color:var(--accent);overflow:hidden}
+  .portrait img{width:100%;height:100%;object-fit:cover;object-position:center top}
+
+  section{padding:56px 0;border-bottom:1px solid var(--rule)}
+  h2{font-family:var(--serif);font-weight:500;font-size:28px;margin:0 0 6px}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+  .intro{color:var(--muted);max-width:40em;margin:0 0 32px}
+  p{margin:0 0 16px}
+  .prose{max-width:40em}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:22px 22px 20px}
+  .glyph{font-family:var(--serif);font-size:26px;color:var(--accent);line-height:1;margin-bottom:14px}
+  .card h3{font-family:var(--serif);font-weight:500;font-size:20px;margin:0 0 8px;line-height:1.25}
+  .card p{font-size:15px;color:var(--muted);margin:0}
+  .theme{margin-top:28px;padding:20px 24px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 6px 6px 0;max-width:44em}
+  .theme p{margin:0;font-size:15.5px}
+  .past{margin-top:22px;font-size:15px;color:var(--muted);max-width:44em}
+
+  .entries{list-style:none;margin:0;padding:0}
+  .entries li{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--rule)}
+  .entries li:first-child{border-top:0;padding-top:0}
+  .date{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:3px}
+  .entry-title{font-weight:500}
+  .entry-sub{font-style:italic;font-family:var(--serif);font-size:17px;color:var(--ink)}
+  .entry-meta{color:var(--muted);font-size:14.5px}
+  .entry-meta b{color:var(--ink);font-weight:600}
+  .entry-links{margin-top:6px;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px}
+  .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(31,92,85,.3);border-radius:3px;padding:1px 6px;margin-right:8px;vertical-align:1px}
+  .group-label{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:34px 0 14px}
+  .group-label:first-of-type{margin-top:0}
+  .pub-title{font-family:var(--serif);font-size:19px;font-weight:500;line-height:1.35;margin-bottom:4px}
+
+  footer{padding:36px 0 56px;color:var(--muted);font-size:13px}
+
+  @media (max-width:720px){
+    header{padding:48px 0 36px}
+    .hero{grid-template-columns:1fr;gap:28px}
+    .portrait{order:-1;width:180px;height:222px;font-size:40px}
+    .cards{grid-template-columns:1fr}
+    .entries li{grid-template-columns:1fr;gap:4px}
+    nav ul{gap:16px}
+    .mark{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="mark" href="#top">Yoanna Turura</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#news">News</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="wrap hero">
+    <div>
+      <h1>Yoanna Turura</h1>
+      <p class="role">Software Engineer, Amazon Web Services &middot; MIT '25</p>
+      <p class="lede">I build and study machine learning systems, with a focus on making AI that respects privacy, works where resources are scarce, and serves every community it reaches.</p>
+      <div class="links">
+        <a href="#contact">Email</a>
+        <a href="https://github.com/yoannatt">GitHub</a>
+        <a href="https://www.linkedin.com/in/yoanna-turura-8096501b1/">LinkedIn</a>
+        <a href="https://substack.com/@fxoanna">Substack</a>
+        <!-- Add once created: <a href="GOOGLE_SCHOLAR_URL">Google Scholar</a> -->
+        <!-- Add once created: <a href="cv.pdf">CV</a> -->
+      </div>
+    </div>
+    <!-- To add a photo: replace "YT" with <img src="your-photo.jpg" alt="Yoanna Turura"> -->
+    <div class="portrait"><img src="photo.jpg" alt="Yoanna Turura on the steps of MIT, Class of 2025"></div>
+  </div>
+</header>
+
+<main>
+
+<section id="about">
+  <div class="wrap">
+    <p class="kicker">About</p>
+    <h2>Bio</h2>
+    <div class="prose">
+      <p>I'm a software engineer at Amazon Web Services in Jersey City, where I build authentication, authorization, and access-control infrastructure for sensitive financial workflows, along with tools that surface insights into operating expenses. I graduated from MIT in 2025 with a bachelor's in Artificial Intelligence and Decision Making.</p>
+      <p>At MIT I worked as a machine learning researcher on the ML4H team in the Uhler Lab at the Broad Institute of MIT and Harvard. There I led the development of <a href="https://github.com/broadinstitute/ml4h-latentverse">Latentverse</a>, an open-source toolkit for evaluating learned representations, and presented it as first author at CHIL 2025.</p>
+      <p>The work I find most meaningful sits where models meet people: improving how a model learns while staying close to the real application and the people using it. Teaching is part of that for me. I've designed and taught introductory programming courses for hundreds of first-time programmers, including in Addis Ababa, Ethiopia.</p>
+      <p>I write for fun on <a href="https://substack.com/@fxoanna">Substack</a>, no AI involved.</p>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <p class="kicker">Research</p>
+    <h2>Interests</h2>
+    <p class="intro">My current research centers on federated learning: training a shared model across many devices or institutions without pooling their raw data in one place.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="glyph">&#8711;</div>
+        <h3>Federated optimization</h3>
+        <p>Making decentralized training converge reliably and efficiently when data is scattered, uneven, and private.</p>
+      </div>
+      <div class="card">
+        <div class="glyph">&#9671;</div>
+        <h3>Low-resource deployment</h3>
+        <p>Adapting federated learning for settings with limited compute, bandwidth, and intermittent connectivity.</p>
+      </div>
+      <div class="card">
+        <div class="glyph">&#8776;</div>
+        <h3>Fairness across clients</h3>
+        <p>Ensuring a shared model works well for every participant, not just the largest or best-resourced ones.</p>
+      </div>
+    </div>
+    <div class="theme">
+      <p><strong>The broader thread:</strong> I'm interested in AI as public interest technology: research that has a direct, positive effect on people, and systems that change how AI gets deployed into communities that have historically been left out.</p>
+    </div>
+    <p class="past"><strong style="color:var(--ink);font-weight:500">Past work:</strong> evaluating self-supervised representations and their stability under distribution shift in multimodal clinical data (ECG, MRI), and adapting multilingual language models to code-switched text.</p>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap">
+    <p class="kicker">Publications</p>
+    <h2>Papers</h2>
+    <p class="intro">Also available on <a href="https://github.com/yoannatt">GitHub</a>.<!-- Swap for Google Scholar once your profile is live --></p>
+    <!-- Template for a new paper (newest first):
+      <li>
+        <div class="date">2027</div>
+        <div>
+          <div class="pub-title">Paper title</div>
+          <div class="entry-meta">Author A, <b>Yoanna Turura</b>, Author C</div>
+          <div class="entry-meta"><span class="tag">Venue</span>Full venue name</div>
+          <div class="entry-links"><a href="#">Paper</a><a href="#">Code</a></div>
+        </div>
+      </li>
+    -->
+    <ul class="entries">
+      <li>
+        <div class="date">2025</div>
+        <div>
+          <div class="pub-title">The Latentverse: An Open-Source Benchmarking Toolkit for Evaluating Latent Representations</div>
+          <div class="entry-meta"><b>Yoanna Turura</b>, Sam Freesun Friedman, Aurora Cremer, Mahnaz Maddah, Sana Tonekaboni</div>
+          <div class="entry-meta"><span class="tag">CHIL 2025</span>Conference on Health, Inference, and Learning, PMLR 287</div>
+          <div class="entry-links">
+            <a href="https://proceedings.mlr.press/v287/turura25a.html">Paper</a>
+            <a href="https://www.biorxiv.org/content/10.1101/2025.04.25.650676">Preprint</a>
+            <a href="https://github.com/broadinstitute/ml4h-latentverse">Code</a>
+            <a href="https://pypi.org/project/ml4h-latentverse/">PyPI</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="date">2025</div>
+        <div>
+          <div class="pub-title">Enhancing Multilingual Language Models for Code-Switched Input Data</div>
+          <div class="entry-meta">Katherine Xie, Nitya Babbar, Vicky Chen, <b>Yoanna Turura</b></div>
+          <div class="entry-meta"><span class="tag">Preprint</span>arXiv:2503.07990</div>
+          <div class="entry-links">
+            <a href="https://arxiv.org/abs/2503.07990">arXiv</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <p class="kicker">Experience</p>
+    <h2>Research &amp; industry</h2>
+
+    <p class="group-label">Research</p>
+    <ul class="entries">
+      <li>
+        <div class="date">2024 – 2025</div>
+        <div>
+          <div class="entry-title">Machine Learning Researcher, Broad Institute of MIT and Harvard</div>
+          <div class="entry-meta">ML4H team, Uhler Lab. Built an open-source benchmarking toolkit for self-supervised representations across clustering, disentanglement, robustness, and expressiveness, and studied representation stability under distribution shift in clinical data.</div>
+        </div>
+      </li>
+    </ul>
+
+    <p class="group-label">Industry</p>
+    <ul class="entries">
+      <li>
+        <div class="date">2025 – now</div>
+        <div>
+          <div class="entry-title">Software Development Engineer, Amazon Web Services</div>
+          <div class="entry-meta">FinTech, Jersey City. Authentication and authorization infrastructure, role-based access control, and threat modeling for sensitive internal workflows, plus operating expense insight tools.</div>
+        </div>
+      </li>
+      <li>
+        <div class="date">2022 – 2024</div>
+        <div>
+          <div class="entry-title">Software Development Intern, Amazon</div>
+          <div class="entry-meta">Three internships across AWS FinTech and Fire TV. Cut a data-correction job's runtime by 85% with graph-traversal optimization, built APIs used by hundreds of internal teams, and shipped a validation tool that shortened Fire TV release cycles.</div>
+        </div>
+      </li>
+    </ul>
+
+    <p class="group-label">Education</p>
+    <ul class="entries">
+      <li>
+        <div class="date">2021 – 2025</div>
+        <div>
+          <div class="entry-title">Massachusetts Institute of Technology</div>
+          <div class="entry-meta">B.S., Artificial Intelligence and Decision Making. Coursework in machine learning, advanced NLP, optimization, probability, algorithms, and computer vision.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="teaching">
+  <div class="wrap">
+    <p class="kicker">Teaching</p>
+    <h2>Teaching &amp; outreach</h2>
+    <ul class="entries">
+      <li>
+        <div class="date">2026 – now</div>
+        <div>
+          <div class="entry-title">Instructor, Introduction to Programming &middot; Shaggar Institute of Technology</div>
+          <div class="entry-meta">Designed the curriculum and lead interactive lessons for 240+ first-year students.</div>
+        </div>
+      </li>
+      <li>
+        <div class="date">Fall 2024</div>
+        <div>
+          <div class="entry-title">Lab Assistant, MIT Intro to Programming with Python / Computational Thinking and Data Science</div>
+          <div class="entry-meta">Held office hours, assessed student understanding, and wrote problem-set solutions.</div>
+        </div>
+      </li>
+      <li>
+        <div class="date">Jan 2023</div>
+        <div>
+          <div class="entry-title">Instructor &amp; Curriculum Developer &middot; Brighter Generation Programming, Addis Ababa</div>
+          <div class="entry-meta">Built and taught a Python course for about 140 students with no prior programming experience.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <p class="kicker">News</p>
+    <h2>Recent</h2>
+    <!-- Newest at the top -->
+    <ul class="entries">
+      <li>
+        <div class="date">Nov 2026</div>
+        <div>Launched this site to share my research as it develops.</div>
+      </li>
+      <li>
+        <div class="date">Feb 2026</div>
+        <div>Started teaching Introduction to Programming at Shaggar Institute of Technology.</div>
+      </li>
+      <li>
+        <div class="date">Sep 2025</div>
+        <div>Joined Amazon Web Services as a Software Development Engineer.</div>
+      </li>
+      <li>
+        <div class="date">Jun 2025</div>
+        <div>Presented Latentverse at CHIL 2025 at UC Berkeley. Read the <a href="https://www.ericandwendyschmidtcenter.org/updates/conference-catch-up-yoanna-turura">Eric and Wendy Schmidt Center interview</a>.</div>
+      </li>
+      <li>
+        <div class="date">May 2025</div>
+        <div>Graduated from MIT with a B.S. in Artificial Intelligence and Decision Making.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <p class="kicker">Contact</p>
+    <h2>Get in touch</h2>
+    <p class="prose">I'm always glad to talk with researchers, practitioners, and community organizations working on privacy-preserving or equitable AI.</p>
+    <p>Email: <a href="mailto:yoannaturura@gmail.com">yoannaturura@gmail.com</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 Yoanna Turura</div>
+</footer>
+
+</body>
+</html>
